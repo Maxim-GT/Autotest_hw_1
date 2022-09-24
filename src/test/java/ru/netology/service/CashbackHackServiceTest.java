@@ -1,8 +1,7 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class CashbackHackServiceTest {
 
@@ -11,15 +10,15 @@ public class CashbackHackServiceTest {
         int expected = 100;
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(900);
-        assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testRemainEqualsLimit() {
-        int expected = 1000;
+        int expected = 0;
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(1000);
-        assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -27,6 +26,6 @@ public class CashbackHackServiceTest {
         int expected = 999;
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(1001);
-        assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 }
